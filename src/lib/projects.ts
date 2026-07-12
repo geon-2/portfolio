@@ -77,7 +77,7 @@ export const projects: Project[] = [
       'AI Rookie 버전에서는 AI 서비스 자체를 제외한 API, 서버 구조, 운영, 인프라 영역을 담당 범위로 분리했습니다.',
       'FastAPI 기반 구조를 새로 설계하며 인증, 예외 처리, 로깅, 테스트, 데이터베이스, 배포 구조를 단계적으로 구현 중입니다.',
     ],
-    links: [{ label: 'khu-return-19/client', href: 'https://github.com/khu-return-19/client' }],
+    links: [{ label: 'khu-return-19', href: 'https://github.com/khu-return-19' }],
   },
   {
     slug: 'filterify-april',
