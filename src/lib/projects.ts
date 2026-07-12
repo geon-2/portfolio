@@ -50,6 +50,7 @@ export const projects: Project[] = [
       'Firebase Analytics 원본 데이터를 BigQuery와 연결했습니다.',
       '기존 어드민 UI에서 KPI·퍼널·유입 경로·행동 데이터를 확인할 수 있도록 데이터 구조를 정리했습니다.',
     ],
+    links: [{ label: 'REVEDE-SNAPLINK Organization', href: 'https://github.com/REVEDE-SNAPLINK' }],
   },
   {
     slug: 'pertineo-ai-rookie',
