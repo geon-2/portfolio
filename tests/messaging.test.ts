@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { portfolioNarrative } from '../src/lib/profile';
+import { contacts, portfolioNarrative } from '../src/lib/profile';
 import { getProjectBySlug } from '../src/lib/projects';
 
 describe('portfolio messaging', () => {
@@ -30,5 +30,11 @@ describe('portfolio messaging', () => {
     expect(snaplink?.challenge).toContain('모바일 앱, 랜딩페이지, 관리자 페이지를 동시에 개발');
     expect(snaplink?.challenge).toContain('실제 앱스토어 출시');
     expect(snaplink?.solution.join(' ')).toContain('Analytics');
+  });
+
+  it('uses public portfolio contact channels without exposing a phone number', () => {
+    expect(contacts.map((contact) => contact.label)).toEqual(['Email', 'GitHub', 'LinkedIn', 'Velog']);
+    expect(contacts.find((contact) => contact.label === 'Email')?.href).toBe('mailto:gunle0416@gmail.com');
+    expect(contacts.map((contact) => contact.value).join(' ')).not.toContain('010-');
   });
 });

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { portfolioNarrative, principles } from '@/lib/profile';
+import { contacts, portfolioNarrative, principles } from '@/lib/profile';
 import { additionalProjects, featuredProjects } from '@/lib/projects';
 
 const skillGroups: { title: string; skills: string[] }[] = [
@@ -21,7 +21,7 @@ export default function Home() {
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <a className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white" href="https://github.com/geon-2">GitHub</a>
-          <a className="rounded-full border border-line px-5 py-3 text-sm font-semibold text-ink" href="mailto:sslmyo24@gmail.com">Contact</a>
+          <a className="rounded-full border border-line px-5 py-3 text-sm font-semibold text-ink" href="mailto:gunle0416@gmail.com">Contact</a>
         </div>
       </section>
 
@@ -99,6 +99,30 @@ export default function Home() {
               <p className="mt-2 text-muted">{project.summary}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-ink px-6 py-16 text-white">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60">Contact</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-5xl">Let’s build reliable products.</h2>
+            <p className="mt-5 max-w-2xl leading-7 text-white/70">
+              제품 출시와 운영 경험을 바탕으로, 사용자 흐름과 서비스 안정성을 함께 고민하는 개발자로 성장하고 있습니다.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {contacts.map((contact) => (
+              <a
+                key={contact.label}
+                href={contact.href}
+                className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">{contact.label}</p>
+                <p className="mt-2 break-words text-sm font-semibold text-white">{contact.value}</p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>

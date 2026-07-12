@@ -25,3 +25,10 @@ export const principles = [
     description: 'AI 모델 자체보다, AI 기능이 사용자 입력·대기 경험·서버 구조·데이터 흐름 안에서 안정적으로 동작하는 방식을 중요하게 봅니다.',
   },
 ];
+
+export const contacts = [
+  { label: 'Email', value: 'gunle0416@gmail.com', href: 'mailto:gunle0416@gmail.com' },
+  { label: 'GitHub', value: 'github.com/geon-2', href: 'https://github.com/geon-2' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/geon-lee', href: 'https://www.linkedin.com/in/geon-lee' },
+  { label: 'Velog', value: 'velog.io/@gunle', href: 'https://velog.io/@gunle' },
+];
