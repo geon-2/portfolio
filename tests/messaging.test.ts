@@ -6,13 +6,22 @@ describe('portfolio messaging', () => {
   it('positions Geon as a product-minded engineer rather than a generic full-stack generalist', () => {
     expect(portfolioNarrative.heroTitle).toContain('운영 가능한 서비스 구조');
     expect(portfolioNarrative.heroTitle).toContain('Software Engineer');
-    expect(portfolioNarrative.about.join(' ')).toContain('기능 구현만으로는 충분하지 않다는 점');
-    expect(portfolioNarrative.about.join(' ')).toContain('프론트엔드와 서버가 어떤 책임을 나누어야 하는지');
+    expect(portfolioNarrative.heroDescription).toContain('인증 상태');
+    expect(portfolioNarrative.about.join(' ')).toContain('제품의 안정성은 화면 구현만으로 만들어지지 않는다는 것');
+    expect(portfolioNarrative.about.join(' ')).toContain('회원가입·로그인, 인증 상태 유지, 딥링크 유입');
   });
 
   it('keeps AI as an expansion axis grounded in product experience', () => {
-    expect(portfolioNarrative.about.join(' ')).toContain('AI 기능이 실제 사용자 경험과 제품 구조 안에서 안정적으로 동작');
+    expect(portfolioNarrative.about.join(' ')).toContain('AI 기능이 사용자 입력, 분석 요청, 대기 경험, 서버 구조 안에서 안정적으로 동작');
     expect(portfolioNarrative.heroTitle).not.toContain('AI Engineer');
+  });
+
+  it('avoids leading with studying or generic growth wording in the top narrative', () => {
+    const topNarrative = [portfolioNarrative.heroDescription, ...portfolioNarrative.about].join(' ');
+
+    expect(topNarrative).not.toContain('공부');
+    expect(topNarrative).not.toContain('역량을 확장');
+    expect(topNarrative).not.toContain('성장하고 있습니다');
   });
 
   it('keeps Snaplink broader than an analytics refactor project', () => {
