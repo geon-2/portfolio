@@ -13,7 +13,7 @@ export default function Home() {
     <main>
       <section className="mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-center px-6 py-20">
         <p className="mb-5 text-sm font-semibold uppercase tracking-[0.28em] text-accent">{portfolioNarrative.eyebrow}</p>
-        <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.05em] text-ink md:text-7xl">
+        <h1 className="max-w-4xl text-4xl font-semibold leading-[1.18] tracking-[-0.035em] text-ink md:text-6xl md:leading-[1.12]">
           {portfolioNarrative.heroTitle}
         </h1>
         <p className="mt-8 max-w-3xl text-lg leading-8 text-muted md:text-xl">
