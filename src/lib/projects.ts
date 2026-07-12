@@ -25,7 +25,7 @@ export const projects: Project[] = [
     period: '2025 - 2026',
     role: '개발 팀장 · 프론트엔드 전반 · 앱/웹/어드민 운영',
     summary:
-      'React Native 기반 iOS·Android 앱, React 랜딩페이지, React 어드민 대시보드를 개발하고 앱스토어 출시와 운영 데이터 수집 환경 구축까지 담당했습니다.',
+      'React Native 기반 iOS·Android 앱과 React 랜딩페이지·관리자 페이지를 개발하고, 앱 출시 이후 QA·버전 관리·웹 운영·사용자 행동 데이터 계측 환경까지 담당했습니다.',
     stack: ['React Native', 'React', 'React Query', 'Zustand', 'Firebase Analytics', 'Airbridge', 'BigQuery'],
     highlights: [
       '촬영 카테고리 탐색 → 작가 검색/프로필 조회 → 문의·예약 → 후기 작성으로 이어지는 핵심 사용자 플로우 구현',
@@ -37,13 +37,13 @@ export const projects: Project[] = [
     ],
     metrics: [
       '2026년 2월 iOS·Android 앱 출시',
-      '누적 회원가입자 약 120명',
+      '초기 사용자 약 120명 가입',
       '별도의 본격적인 마케팅은 진행하지 않은 상태',
       '일부 작가와 사용자가 앱에 가입·접속했으나 실제 촬영 중개 및 예약 전환은 발생하지 않음',
       '초기 MVP 출시와 사용자 행동 데이터 수집 환경 구축 완료',
     ],
     challenge:
-      '제한된 인력과 촉박한 일정 속에서 모바일 앱, 랜딩페이지, 어드민 페이지를 동시에 개발하고 출시까지 완료해야 했습니다. 빠른 기능 구현을 우선하면서 화면, 상태 관리, 이벤트 로깅 로직이 여러 위치에 분산되었고 Firebase Analytics 이벤트 중복 수집, 잘못된 screen_view 기록, 자동 수집 이벤트와 커스텀 이벤트의 역할 중복 문제가 발생했습니다.',
+      '제한된 인력과 빠른 출시 일정 속에서 모바일 앱, 랜딩페이지, 관리자 페이지를 동시에 개발하고 실제 앱스토어 출시까지 완료해야 했습니다. 출시 이후에는 빠른 기능 구현 과정에서 분산된 화면 구조, 상태 관리, 이벤트 로깅을 운영 가능한 형태로 보완해야 했습니다. 특히 Firebase Analytics 이벤트 중복 수집, 잘못된 screen_view 기록, 자동 수집 이벤트와 커스텀 이벤트의 역할 중복으로 분석 데이터 신뢰성을 보장하기 어려웠습니다.',
     solution: [
       '공통 Analytics 모듈을 구축해 이벤트 로깅을 일원화했습니다.',
       '이벤트 중복 방지, 세션 단위 유입 정보 유지, 이벤트 버전 관리를 적용했습니다.',
@@ -54,28 +54,28 @@ export const projects: Project[] = [
   {
     slug: 'pertineo-ai-rookie',
     title: 'Pertineo / AI Rookie',
-    subtitle: 'AI 자기소개서 분석 서비스 frontend와 FastAPI migration',
+    subtitle: 'AI 자기소개서 분석 서비스 frontend와 FastAPI 기반 신규 백엔드 구축',
     status: 'featured',
     period: '2025 - 진행 중',
     role: '기존 Pertineo 프론트 팀원 · AI Rookie 풀스택 담당',
     summary:
-      '기존 Spring 기반 AI 자기소개서 분석 서비스를 이해하고, 기존 프론트엔드 기능 구현 경험을 바탕으로 FastAPI 기반 별도 서비스로 재구현 중입니다.',
+      '기존 Pertineo 서비스의 기능과 사용자 흐름을 바탕으로, AI Rookie 버전에서 FastAPI 기반 백엔드를 새롭게 설계·구축하고 있습니다.',
     stack: ['React', 'React Query', 'Zustand', 'SSE', 'FastAPI', 'DynamoDB', 'Redis', 'AWS'],
     highlights: [
       '공지사항, 서비스 소개, 자기소개서 입력 내 회사/이력서 탭 입력 구현',
       '자기소개서 분석을 위한 자동완성 구현',
       '자기소개서 분석 대기 화면과 실시간 대기 화면 애니메이션 구현',
       'SSE 기반 실시간 스트림 처리와 pseudo progress bar 구현',
-      'Spring Framework로 구현된 기존 서비스를 FastAPI 기반 별도 서비스로 마이그레이션 중',
+      '기존 서비스 경험을 기반으로 FastAPI 기반 신규 백엔드 설계·구축 중',
       'AI 서비스 자체를 제외한 프론트, 서버, 운영, 인프라 담당',
     ],
-    metrics: ['기존 Pertineo client public repo 운영', 'AI Rookie 버전 현재 개발 중', '기존 서비스의 frontend 기능 구현 경험과 신규 backend migration 경험 연결'],
+    metrics: ['기존 Pertineo client public repo 운영', 'AI Rookie 버전 현재 개발 중', '기존 서비스의 frontend 기능 구현 경험과 신규 FastAPI 백엔드 구축 경험 연결'],
     challenge:
-      '기존 서비스는 Spring Framework 기반으로 구현되어 있었고, AI Rookie 버전에서는 기존 도메인 흐름을 이해하면서 FastAPI 기반으로 별도 서비스를 재구성해야 합니다. 동시에 AI 분석 서비스 자체와 제품 서버/API/운영 영역의 책임 경계를 분리해야 했습니다.',
+      'AI Rookie 버전에서는 기존 Spring 코드를 단순히 문법 변환하는 것이 아니라, 기존 Pertineo의 기능과 요구사항을 바탕으로 FastAPI 백엔드를 새롭게 구축해야 합니다. 사용자 입력, 분석 요청, 실시간 대기 경험, 인증, 예외 처리, 로깅, 테스트, 운영 구조를 단계적으로 설계하면서 AI 분석 서비스와 제품 서버/API의 책임 경계를 분리해야 했습니다.',
     solution: [
       '기존 프론트엔드에서 사용자 입력, 분석 대기, SSE streaming 처리 등 실제 사용자 플로우를 구현하며 도메인을 파악했습니다.',
       'AI Rookie 버전에서는 AI 서비스 자체를 제외한 API, 서버 구조, 운영, 인프라 영역을 담당 범위로 분리했습니다.',
-      'FastAPI 기반 구조로 마이그레이션하며 테스트 가능한 backend architecture를 목표로 구현 중입니다.',
+      'FastAPI 기반 구조를 새로 설계하며 인증, 예외 처리, 로깅, 테스트, 데이터베이스, 배포 구조를 단계적으로 구현 중입니다.',
     ],
     links: [{ label: 'khu-return-19/client', href: 'https://github.com/khu-return-19/client' }],
   },
