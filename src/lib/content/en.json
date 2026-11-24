@@ -1,0 +1,422 @@
+{
+  "ui": {
+    "skip": "Skip to content",
+    "work": "Work",
+    "background": "Background",
+    "contact": "Contact",
+    "print": "Save as PDF",
+    "back": "All projects",
+    "caseStudy": "View project",
+    "workTitle": "Selected Projects",
+    "other": "Other Projects",
+    "role": "Role",
+    "team": "Team",
+    "period": "Project period",
+    "operations": "Project metrics",
+    "stack": "Stack",
+    "problem": "Background",
+    "contribution": "Contributions",
+    "decisions": "Implementation & technical decisions",
+    "results": "Results & validation",
+    "related": "Other projects",
+    "links": "Service & source code",
+    "gallery": "Product screens",
+    "architecture": "Service architecture",
+    "video": "Demo video",
+    "skills": "Technical Skills",
+    "education": "Education & Certifications",
+    "contactTitle": "Get in touch",
+    "email": "Send an email",
+    "updated": "As of November 2026",
+    "imageNote": "Screenshots from the service. The original interface is in Korean."
+  },
+  "profile": {
+    "name": "Geon Lee",
+    "englishName": "이건",
+    "role": "Backend · Frontend · AI/ML",
+    "education": "Kyung Hee University · Software Convergence, Data Science track",
+    "educationPeriod": "Mar 2020 — present",
+    "courseProvider": "DeepLearning.AI · Coursera",
+    "courses": [
+      {
+        "title": "Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",
+        "period": "Completed Jul 2026"
+      },
+      {
+        "title": "Neural Networks and Deep Learning",
+        "period": "Completed Apr 2026"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "snaplink",
+      "title": "Snaplink",
+      "category": "Product engineering",
+      "featured": true,
+      "stack": [
+        "React Native",
+        "TypeScript",
+        "React",
+        "TanStack Query",
+        "Zustand",
+        "STOMP",
+        "Firebase",
+        "BigQuery",
+        "AppsFlyer"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "href": "https://www.snaplink.run/"
+        },
+        {
+          "label": "App Store",
+          "href": "https://apps.apple.com/kr/app/id6756947156"
+        },
+        {
+          "label": "Google Play",
+          "href": "https://play.google.com/store/apps/details?id=com.revede.snaplink"
+        },
+        {
+          "label": "GitHub · Frontend",
+          "href": "https://github.com/REVEDE-SNAPLINK/SNAPLINK_FRONT"
+        }
+      ],
+      "images": [],
+      "videoUrl": null,
+      "subtitle": "Photographer matching and booking service",
+      "state": "Released · operating",
+      "period": "Sep 2025 — present",
+      "role": "Development lead · mobile, web, and admin frontend",
+      "team": "Collaborated with planning, design, marketing, and backend. I owned the app, web, and admin frontend and integrated the APIs.",
+      "summary": "Developed the iOS and Android app with React Native, plus the landing site and admin dashboard with React. After launch, I handled chat recovery, authentication, releases, and behavioral analytics.",
+      "problem": "The app lets customers browse photographer portfolios, make inquiries, and book shoots. Photographers use a separate professional mode in the same app. After launch, I worked on restoring chat across network changes and app foregrounding, and preserving authentication when starting offline.",
+      "highlights": [
+        "Implemented photographer search and profiles, inquiries, bookings, reviews, and separate customer and photographer experiences. Also built the landing site and admin interface.",
+        "Tracked real-device chat failures to reconnects triggered by every NetInfo event. Limited them to offline-to-online transitions and rebuilt the STOMP client after 3 consecutive failures.",
+        "Serialized token refresh requests with a 10-second timeout. Reworked authentication bootstrap so starting offline would not immediately log the user out.",
+        "Removed Airbridge and consolidated deep links on AppsFlyer OneLink. Kept incoming destinations until authentication and navigation were ready.",
+        "Connected Firebase Analytics and BigQuery to the admin dashboard. Replaced independent funnel counts with sequential queries that require each event to follow the previous step."
+      ],
+      "decisions": [
+        {
+          "title": "React Native + TypeScript",
+          "body": "Used one codebase for iOS and Android with native integrations where needed. TypeScript and Jest covered logic such as authentication and deep-link resolution."
+        },
+        {
+          "title": "STOMP + connection recovery",
+          "body": "Integrated real-time chat with STOMP. Handled network recovery separately from app foregrounding, with a pending queue capped at 50 messages and deduplication keys."
+        },
+        {
+          "title": "Store releases + OTA",
+          "body": "Routed native changes through Fastlane to store test tracks and JavaScript changes through Revopush OTA. Firebase Remote Config controlled maintenance mode and minimum supported versions."
+        },
+        {
+          "title": "Sequential funnels in BigQuery",
+          "body": "Independent user counts can make a later funnel step larger than an earlier one. Compared per-user event timestamps to count ordered journeys from discovery to booking."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "Feb 2026",
+          "label": "iOS & Android launch",
+          "note": "iOS first released February 9, 2026, per the App Store record."
+        },
+        {
+          "value": "100+",
+          "label": "Google Play downloads",
+          "note": "Google Play listing on November 21, 2026. Downloads, not registered or active users."
+        },
+        {
+          "value": "App · Web · Admin",
+          "label": "Frontend ownership",
+          "note": "UI, API integration, releases, and operating tools."
+        }
+      ],
+      "results": [
+        "The service database snapshot on November 21, 2026 recorded 0 completed bookings over the preceding 90 days.",
+        "Registration and active-user analytics include team members and test devices.",
+        "Verified OneLink routing on iOS and Android devices. Deferred deep linking after a fresh install remained unverified.",
+        "Still operating as of November 24, 2026, with shutdown planned for December 31, 2026."
+      ],
+      "flow": [
+        "React Native app · React web",
+        "REST API · STOMP",
+        "Firebase · BigQuery"
+      ],
+      "captions": []
+    },
+    {
+      "slug": "pertineo-ai-rookie",
+      "title": "Pertineo",
+      "category": "Frontend · Backend",
+      "featured": true,
+      "stack": [
+        "Python",
+        "FastAPI",
+        "DynamoDB",
+        "AWS EC2",
+        "Nginx",
+        "systemd",
+        "SMTP"
+      ],
+      "links": [
+        {
+          "label": "AI Rookie Demo",
+          "href": "https://client-ecru-ten-63.vercel.app/"
+        },
+        {
+          "label": "GitHub · API server",
+          "href": "https://github.com/Team-Pertineo/server"
+        },
+        {
+          "label": "GitHub · AI server (team)",
+          "href": "https://github.com/Team-Pertineo/pertineo_ai_server"
+        },
+        {
+          "label": "Original Pertineo",
+          "href": "https://pertineo.khu.ac.kr/"
+        }
+      ],
+      "images": [],
+      "videoUrl": "/videos/pertineo-ai-rookie-demo.mp4",
+      "subtitle": "Service frontend development & competition backend migration",
+      "state": "Service development · Competitions",
+      "period": "Jul — Aug 2026 (competition development)",
+      "role": "Frontend development · full competition backend migration · EC2 operations",
+      "team": "I developed the original service frontend and owned the competition product API, deployment, and operations. The AI developer handled model and agent pipeline changes.",
+      "summary": "Developed the original Pertineo frontend. For AI Rookie and KHU Nexus Innovation Challenge, migrated the entire Spring Boot product backend to FastAPI in a separate project, built authentication, session, and resume APIs, and handled EC2 deployment and operations.",
+      "problem": "After working on the original Pertineo frontend, developed a separate version for AI Rookie and KHU Nexus Innovation Challenge. The AI Rookie domestic AI track required a different model, so we separated the project to avoid affecting the existing service. I chose familiar Python and FastAPI to meet the competition schedule and maintain the backend myself.",
+      "highlights": [
+        "Developed the original Pertineo frontend and worked on a separate version for AI Rookie and KHU Nexus Innovation Challenge.",
+        "Migrated the full Spring Boot product backend to FastAPI, including authentication, sessions, notices, and resume APIs.",
+        "Added DynamoDB-backed resume storage and retrieval, and verification email delivery through Gmail SMTP over SSL.",
+        "Managed the product API and AI server as separate systemd services. Connected the product API to the local AI service.",
+        "Configured an Nginx reverse proxy and automatic process restarts. Deployed by pulling code on EC2 and restarting the service."
+      ],
+      "decisions": [
+        {
+          "title": "FastAPI",
+          "body": "Selected familiar Python and FastAPI for development speed and maintainability. Separated routes, services, and repositories according to the existing API responsibilities."
+        },
+        {
+          "title": "DynamoDB",
+          "body": "Used the existing AWS data environment for product persistence, session and verification-code expiry, and resume storage APIs."
+        },
+        {
+          "title": "Separate API and AI processes",
+          "body": "The product API listens on 127.0.0.1:8001 and the AI server on 127.0.0.1:8080. Nginx forwards external requests to the product API."
+        },
+        {
+          "title": "systemd + Nginx",
+          "body": "Kept process management and the reverse proxy straightforward. Deployment restarts the relevant service and can briefly interrupt request handling."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "Full migration",
+          "label": "Spring Boot → FastAPI",
+          "note": "Migrated the existing product backend functionality."
+        },
+        {
+          "value": "2 services",
+          "label": "API & AI processes",
+          "note": "Separate systemd units on a single EC2 instance."
+        },
+        {
+          "value": "Jul–Aug 2026",
+          "label": "Development & deployment",
+          "note": "AI ROOKIE · KHU Nexus Innovation Challenge."
+        }
+      ],
+      "results": [
+        "The November 24, 2026 server inspection confirmed the API and AI services were running and the external health endpoint returned HTTP 200.",
+        "No verified operational figures are available for external users or traffic."
+      ],
+      "flow": [
+        "Requests · Nginx :80",
+        "FastAPI product API :8001",
+        "AI server :8080"
+      ],
+      "captions": []
+    },
+    {
+      "slug": "filterify-april",
+      "title": "Filterify / APRIL",
+      "category": "Machine learning",
+      "featured": true,
+      "stack": [
+        "Python",
+        "PyTorch",
+        "CLIP",
+        "Pandas",
+        "scikit-learn",
+        "Jupyter"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/youngyoung2345/Filterify"
+        }
+      ],
+      "images": [],
+      "videoUrl": null,
+      "subtitle": "Music recommendation experiments using album images and text",
+      "state": "Capstone research",
+      "period": "Mar — Jun 2025",
+      "role": "Data collection · architecture proposal · experiments & evaluation",
+      "team": "Data science capstone team. I collected data, proposed the recommendation structure, ran experiments and analysis, and contributed to the presentation and report.",
+      "summary": "A capstone project predicting audio features from album art and descriptions, then filtering tracks that do not fit a playlist. I worked on data collection, architecture proposals, experiments, and evaluation.",
+      "problem": "Tested whether album art helps identify tracks that fit a playlist. Combined images, text, and audio features, then evaluated filtering results against responses from a 43-person survey.",
+      "highlights": [
+        "Built a dataset of about 500 tracks with album art, descriptions, and audio features.",
+        "Experimented with CLIP image/text embeddings and a PyTorch Audio Feature Predictor.",
+        "Collected evaluation labels through a 43-person survey and analyzed Precision, Recall, F1-score, and modality contributions."
+      ],
+      "decisions": [
+        {
+          "title": "CLIP embeddings",
+          "body": "Used CLIP to represent images and text and compare how each modality contributes to identifying playlist coherence."
+        },
+        {
+          "title": "PyTorch + survey evaluation",
+          "body": "Trained an audio-feature predictor and compared filtering results against survey labels. Kept regression metrics separate from classification and recommendation outcomes."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "~500 tracks",
+          "label": "Collected dataset",
+          "note": "Album art, descriptions, and audio features."
+        },
+        {
+          "value": "43 people",
+          "label": "Evaluation survey",
+          "note": "Used survey labels to compare filtering strategies."
+        },
+        {
+          "value": "0.15 / 0.81",
+          "label": "MAE / cosine similarity",
+          "note": "Audio-feature prediction at λ=1.5, not recommendation accuracy."
+        }
+      ],
+      "results": [
+        "Visual features showed potential to help identify playlist coherence in the capstone experiment.",
+        "These are capstone experiment results. Live-service recommendation click-through and user retention were not evaluated."
+      ],
+      "flow": [
+        "Album art · descriptions",
+        "CLIP · audio-feature prediction",
+        "Filtering · survey evaluation"
+      ],
+      "captions": []
+    },
+    {
+      "slug": "cooronite",
+      "title": "KickGoing / Cooronite",
+      "category": "Web & mobile",
+      "featured": false,
+      "stack": [
+        "React",
+        "React Native",
+        "Expo",
+        "Python",
+        "Flask",
+        "Kakao Map API"
+      ],
+      "links": [
+        {
+          "label": "GitHub · Mobile",
+          "href": "https://github.com/geon-2/cooronite_mobile"
+        },
+        {
+          "label": "GitHub · Server",
+          "href": "https://github.com/geon-2/cooronite_server"
+        },
+        {
+          "label": "GitHub · Web",
+          "href": "https://github.com/geon-2/cooronite_web"
+        }
+      ],
+      "images": [],
+      "videoUrl": null,
+      "subtitle": "Shared-scooter parking and return verification app",
+      "state": "Prototype",
+      "period": "Mar — Jun 2025",
+      "role": "Web, mobile, and backend development",
+      "team": "Owned web/mobile integration and backend development in a team project.",
+      "summary": "Mapped allowed and restricted parking areas with Kakao Map API and verified return locations. A prototype connecting a React web interface with a React Native app.",
+      "problem": "Designed a flow to help shared-scooter users locate parking areas and verify the return location.",
+      "highlights": [
+        "Visualized allowed and restricted areas with Kakao Map API and implemented location checks.",
+        "Connected a React web interface to a React Native WebView and backend APIs."
+      ],
+      "decisions": [
+        {
+          "title": "React + WebView",
+          "body": "Reused the map-based web experience inside the mobile app."
+        }
+      ],
+      "metrics": [],
+      "results": [
+        "A prototype without production usage metrics."
+      ],
+      "flow": [
+        "Map exploration",
+        "Return-location check",
+        "Verification · reporting"
+      ],
+      "captions": []
+    },
+    {
+      "slug": "mindlinker",
+      "title": "Mind Linker",
+      "category": "Frontend engineering",
+      "featured": false,
+      "stack": [
+        "React",
+        "TypeScript",
+        "Zustand",
+        "TanStack Query",
+        "Vitest",
+        "Playwright"
+      ],
+      "links": [
+        {
+          "label": "Project",
+          "href": "https://nemonemo.framer.website/"
+        }
+      ],
+      "images": [],
+      "videoUrl": null,
+      "subtitle": "Counseling and emotional-support service",
+      "state": "In development",
+      "period": "Jul 2026 — present",
+      "role": "React frontend development",
+      "team": "Responsible for the frontend of a counseling and emotional-support service.",
+      "summary": "Migrated a static MVP to React and TypeScript and built client and counselor screens. Worked on state management, API integration boundaries, and Vitest/Playwright tests.",
+      "problem": "Turning a static MVP into a maintainable frontend with clear boundaries for future API integration.",
+      "highlights": [
+        "Migrated core screens to React and TypeScript, separating local state and server integration with Zustand and TanStack Query.",
+        "Kept sensitive flows in memory and checked core journeys with Vitest and Playwright."
+      ],
+      "decisions": [
+        {
+          "title": "React + TypeScript",
+          "body": "Used types to define screen and data contracts and explicit integration points for backend APIs."
+        }
+      ],
+      "metrics": [],
+      "results": [
+        "Authentication, booking, and live server data are not yet integrated. The project link points to the static MVP."
+      ],
+      "flow": [
+        "Client · counselor UI",
+        "Services · repositories",
+        "Prepared for API integration"
+      ],
+      "captions": []
+    }
+  ]
+}

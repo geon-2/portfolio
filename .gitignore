@@ -1,6 +1,10 @@
-node_modules
-.next
-out
-.env*.local
+node_modules/
+.next/
+out/
+.env*
+.vercel/
+*.tsbuildinfo
+_workspace/
+outputs/
 .DS_Store
-coverage
+tmp/

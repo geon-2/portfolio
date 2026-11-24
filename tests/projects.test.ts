@@ -1,24 +1,43 @@
-import { describe, expect, it } from 'vitest';
-import { featuredProjects, getProjectBySlug } from '../src/lib/projects';
+import { describe, expect, it } from "vitest";
+import { getContent, getProjectBySlug, projectHref } from "../src/lib/projects";
 
-describe('portfolio project data', () => {
-  it('has the three featured projects in priority order', () => {
-    expect(featuredProjects.map((project) => project.slug)).toEqual([
-      'snaplink',
-      'pertineo-ai-rookie',
-      'filterify-april',
-    ]);
+describe("case studies", () => {
+  it("preserves project identity, evidence and real links in both languages", () => {
+    const ko = getContent("ko");
+    const en = getContent("en");
+    expect(en.projects.map((p) => p.slug)).toEqual(
+      ko.projects.map((p) => p.slug),
+    );
+    for (const p of ko.projects) {
+      const translated = getProjectBySlug(p.slug, "en")!;
+      expect(translated.links).toEqual(p.links);
+      expect(translated.stack).toEqual(p.stack);
+      expect(translated.metrics).toHaveLength(p.metrics.length);
+      expect(translated.decisions).toHaveLength(p.decisions.length);
+      expect(translated.highlights).toHaveLength(p.highlights.length);
+      expect(translated.results).toHaveLength(p.results.length);
+      if (translated.videoUrl)
+        expect(new URL(translated.videoUrl, "https://portfolio-blush-phi-70.vercel.app").protocol).toBe("https:");
+      p.links.forEach((l) => expect(new URL(l.href).protocol).toBe("https:"));
+    }
   });
 
-  it('keeps Snaplink grounded in verified outcomes, not inflated traction', () => {
-    const snaplink = getProjectBySlug('snaplink');
-
-    expect(snaplink?.metrics).toContain('2026년 2월 iOS·Android 앱 출시');
-    expect(snaplink?.metrics).toContain('초기 사용자 약 120명 가입');
-    expect(snaplink?.metrics.join(' ')).toContain('실제 촬영 중개 및 예약 전환은 발생하지 않음');
+  it("does not equate analytics or downloads with paying customers", () => {
+    const snaplink = getProjectBySlug("snaplink")!;
+    const downloads = snaplink.metrics.find((m) => m.value === "100+")!;
+    expect(downloads.label).toContain("다운로드");
+    expect(downloads.note).toMatch(/가입자.*활성 사용자/);
+    expect(downloads.note).toContain("다운로드");
+    expect(snaplink.results.join(" ")).toContain("팀원과 테스트 기기");
+    expect(snaplink.results.join(" ")).toContain("종료 예정");
+    expect(snaplink.results.join(" ")).toContain("0건");
+    const apiTeam = getProjectBySlug("pertineo-ai-rookie")!.team;
+    expect(apiTeam).toContain("AI 담당자");
+    expect(apiTeam).toMatch(/모델.*에이전트 파이프라인/);
   });
 
-  it('marks Cooronite as additional rather than featured', () => {
-    expect(featuredProjects.some((project) => project.slug === 'cooronite')).toBe(false);
+  it("retains locale when entering a case study and rejects unknown project IDs", () => {
+    expect(projectHref("snaplink", "en")).toBe("/projects/snaplink?lang=en");
+    expect(getProjectBySlug("unknown-project")).toBeUndefined();
   });
 });

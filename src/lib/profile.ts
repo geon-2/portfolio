@@ -1,34 +1,36 @@
-export const portfolioNarrative = {
-  eyebrow: 'Product-minded Software Engineer',
-  heroTitle: '사용자에게 닿는 제품을 만들고, 운영 가능한 서비스 구조를 고민하는 Software Engineer입니다.',
-  heroDescription:
-    'React와 React Native로 웹·앱 제품을 출시하고 운영하며, 사용자 흐름·인증 상태·데이터 계측·운영 도구가 서비스 안정성에 미치는 영향을 경험했습니다.',
-  about: [
-    '저는 React와 React Native를 기반으로 실제 웹·앱 제품을 개발하고 출시해온 개발자입니다.',
-    '스냅링크에서는 개발 팀장으로 모바일 앱, 랜딩페이지, 관리자 페이지의 프론트엔드 전반을 담당했고, iOS·Android 앱 출시 이후 QA, 버전 관리, 웹 운영과 Firebase Analytics·Airbridge·BigQuery 기반 데이터 계측 환경까지 경험했습니다.',
-    '이 과정에서 제품의 안정성은 화면 구현만으로 만들어지지 않는다는 것을 배웠습니다. 회원가입·로그인, 인증 상태 유지, 딥링크 유입, 사용자 행동 데이터, 운영 도구가 서로 연결되어야 사용자가 서비스를 자연스럽게 이용할 수 있었습니다.',
-    'AI Rookie 프로젝트에서는 기존 AI 자기소개서 분석 서비스의 사용자 흐름을 바탕으로 FastAPI 기반 API 구조와 제품 서버의 책임 경계를 설계하고 있습니다. AI 기능이 사용자 입력, 분석 요청, 대기 경험, 서버 구조 안에서 안정적으로 동작하는 방식에 관심이 있습니다.',
-  ],
-};
-
-export const principles = [
+export const contacts = [
   {
-    title: '실제 제품 출시와 운영 경험이 있습니다.',
-    description: '앱 출시 이후 QA, 버전 관리, 웹 운영, 유입 추적, 데이터 계측, 관리자 페이지까지 제품이 사용자에게 닿은 이후의 흐름을 다뤘습니다.',
+    label: "Email",
+    value: "gunle0416@gmail.com",
+    href: "mailto:gunle0416@gmail.com",
   },
   {
-    title: '사용자 흐름과 서비스 안정성을 함께 봅니다.',
-    description: '회원가입·로그인, 인증 상태, 딥링크 유입, 사용자 행동 데이터처럼 화면 뒤에서 서비스 경험을 안정적으로 만드는 흐름을 중요하게 봅니다.',
+    label: "GitHub",
+    value: "github.com/geon-2",
+    href: "https://github.com/geon-2",
   },
   {
-    title: 'AI를 제품 경험 안에서 다루고 싶습니다.',
-    description: 'AI 모델 자체보다, AI 기능이 사용자 입력·대기 경험·서버 구조·데이터 흐름 안에서 안정적으로 동작하는 방식을 중요하게 봅니다.',
+    label: "LinkedIn",
+    value: "linkedin.com/in/geon-lee-440922305",
+    href: "https://www.linkedin.com/in/geon-lee-440922305/",
+  },
+  {
+    label: "Blog",
+    value: "velog.io/@geon-2",
+    href: "https://velog.io/@geon-2/posts",
   },
 ];
 
-export const contacts = [
-  { label: 'Email', value: 'gunle0416@gmail.com', href: 'mailto:gunle0416@gmail.com' },
-  { label: 'GitHub', value: 'github.com/geon-2', href: 'https://github.com/geon-2' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/geon-lee', href: 'https://www.linkedin.com/in/geon-lee' },
-  { label: 'Velog', value: 'velog.io/@gunle', href: 'https://velog.io/@gunle' },
+export const skillGroups = [
+  { title: "Languages", skills: ["Python", "TypeScript", "JavaScript"] },
+  { title: "Backend", skills: ["FastAPI", "DynamoDB", "MySQL", "MongoDB"] },
+  {
+    title: "Frontend / Mobile",
+    skills: ["React", "React Native", "TanStack Query", "Zustand"],
+  },
+  {
+    title: "Infrastructure",
+    skills: ["AWS EC2", "Nginx", "systemd", "GitHub Actions"],
+  },
+  { title: "AI / ML", skills: ["PyTorch", "CLIP", "Pandas", "scikit-learn"] },
 ];
