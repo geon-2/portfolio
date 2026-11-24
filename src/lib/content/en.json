@@ -153,6 +153,8 @@
       "category": "Frontend · Backend",
       "featured": true,
       "stack": [
+        "React",
+        "TypeScript",
         "Python",
         "FastAPI",
         "DynamoDB",
@@ -163,76 +165,86 @@
       ],
       "links": [
         {
-          "label": "AI Rookie Demo",
+          "label": "Pertineo · Service",
+          "href": "https://pertineo.khu.ac.kr/"
+        },
+        {
+          "label": "GitHub · Service frontend",
+          "href": "https://github.com/khu-return-19/client"
+        },
+        {
+          "label": "AI Rookie · Demo",
           "href": "https://client-ecru-ten-63.vercel.app/"
         },
         {
-          "label": "GitHub · API server",
+          "label": "GitHub · Competition API",
           "href": "https://github.com/Team-Pertineo/server"
         },
         {
           "label": "GitHub · AI server (team)",
           "href": "https://github.com/Team-Pertineo/pertineo_ai_server"
-        },
-        {
-          "label": "Original Pertineo",
-          "href": "https://pertineo.khu.ac.kr/"
         }
       ],
       "images": [],
       "videoUrl": "/videos/pertineo-ai-rookie-demo.mp4",
-      "subtitle": "Service frontend development & competition backend migration",
+      "subtitle": "AI-powered cover letter analysis",
       "state": "Service development · Competitions",
-      "period": "Jul — Aug 2026 (competition development)",
-      "role": "Frontend development · full competition backend migration · EC2 operations",
-      "team": "I developed the original service frontend and owned the competition product API, deployment, and operations. The AI developer handled model and agent pipeline changes.",
-      "summary": "Developed the original Pertineo frontend. For AI Rookie and KHU Nexus Innovation Challenge, migrated the entire Spring Boot product backend to FastAPI in a separate project, built authentication, session, and resume APIs, and handled EC2 deployment and operations.",
-      "problem": "After working on the original Pertineo frontend, developed a separate version for AI Rookie and KHU Nexus Innovation Challenge. The AI Rookie domestic AI track required a different model, so we separated the project to avoid affecting the existing service. I chose familiar Python and FastAPI to meet the competition schedule and maintain the backend myself.",
+      "period": "Feb–May 2026 · service frontend / Jul–Aug 2026 · competition version",
+      "role": "Original service frontend · competition backend development & deployment",
+      "team": "Worked with frontend, backend, and AI developers. I developed the original frontend and owned the competition product backend, deployment, and operations. The AI developer handled model and agent pipeline changes.",
+      "summary": "A service that analyzes cover letters and provides competency assessments and suggestions. Developed input, analysis progress, and notice screens for the original service. For AI Rookie and KHU Nexus Innovation Challenge, migrated the entire product backend to FastAPI, added features, and deployed it.",
+      "problem": "Users enter a target company, job, resume, and cover letter to receive an AI analysis report. I developed input and analysis progress screens for the original service. We later built a competition version for AI Rookie and KHU Nexus Innovation Challenge. To support a domestic AI model for AI Rookie without affecting the existing service, we separated the project and migrated the product backend to familiar Python and FastAPI.",
       "highlights": [
-        "Developed the original Pertineo frontend and worked on a separate version for AI Rookie and KHU Nexus Innovation Challenge.",
-        "Migrated the full Spring Boot product backend to FastAPI, including authentication, sessions, notices, and resume APIs.",
-        "Added DynamoDB-backed resume storage and retrieval, and verification email delivery through Gmail SMTP over SSL.",
-        "Managed the product API and AI server as separate systemd services. Connected the product API to the local AI service.",
-        "Configured an Nginx reverse proxy and automatic process restarts. Deployed by pulling code on EC2 and restarting the service."
+        "Original service: Built company, job, and resume input screens in React. Connected autocomplete APIs, added required-field and GPA validation, and implemented mobile layouts.",
+        "Original service: Connected the streaming analysis API to show input validation, web search, competency evaluation, and completion states as they progressed.",
+        "Original service: Fixed a failure path that left users stuck on the loading screen. Added an error modal for failed requests and returned users to the cover letter input page when they closed it.",
+        "Original service: Developed the service introduction, notice list, and notice detail screens and connected notice retrieval APIs.",
+        "Competition version: Migrated the entire Spring Boot product backend to FastAPI and built authentication, session, notice, and resume APIs. Added DynamoDB persistence and verification emails using Gmail SMTP over SSL.",
+        "Competition version: Managed product API and AI processes as separate systemd services behind Nginx. Deployed by pulling code on EC2 and restarting the service."
       ],
       "decisions": [
         {
-          "title": "FastAPI",
-          "body": "Selected familiar Python and FastAPI for development speed and maintainability. Separated routes, services, and repositories according to the existing API responsibilities."
+          "title": "Stage-by-stage analysis progress",
+          "body": "Mapped streaming events to screen states so users could see which analysis stage was running. Queued completion events and animations to display them in order."
         },
         {
-          "title": "DynamoDB",
-          "body": "Used the existing AWS data environment for product persistence, session and verification-code expiry, and resume storage APIs."
+          "title": "Recovery from failed requests",
+          "body": "Handled network and server request failures separately from errors emitted during analysis. Prevented duplicate error modals and returned users to the input page so they could try again."
         },
         {
-          "title": "Separate API and AI processes",
-          "body": "The product API listens on 127.0.0.1:8001 and the AI server on 127.0.0.1:8080. Nginx forwards external requests to the product API."
+          "title": "Separate FastAPI competition backend",
+          "body": "Separated competition development for a domestic AI model from the existing service. Chose familiar Python and FastAPI to meet the schedule and maintain the backend myself."
         },
         {
-          "title": "systemd + Nginx",
-          "body": "Kept process management and the reverse proxy straightforward. Deployment restarts the relevant service and can briefly interrupt request handling."
+          "title": "DynamoDB & email verification",
+          "body": "Used the existing AWS data environment for resume persistence and session and verification-code expiry. Sent codes through Gmail SMTP over SSL without requiring a domain email address."
+        },
+        {
+          "title": "EC2, Nginx & systemd",
+          "body": "Nginx forwards external requests to product API port 8001, which calls the AI service on port 8080. Managed the processes as separate systemd units. Deployments restart the service and can briefly interrupt request handling."
         }
       ],
       "metrics": [
         {
+          "value": "Frontend",
+          "label": "Original service role",
+          "note": "Input, progress, introduction, and notice screens with API integration."
+        },
+        {
           "value": "Full migration",
           "label": "Spring Boot → FastAPI",
-          "note": "Migrated the existing product backend functionality."
+          "note": "Migrated the entire product backend for the competition version."
         },
         {
-          "value": "2 services",
-          "label": "API & AI processes",
-          "note": "Separate systemd units on a single EC2 instance."
-        },
-        {
-          "value": "Jul–Aug 2026",
-          "label": "Development & deployment",
-          "note": "AI ROOKIE · KHU Nexus Innovation Challenge."
+          "value": "2 competitions",
+          "label": "Development based on the existing service",
+          "note": "AI Rookie · KHU Nexus Innovation Challenge."
         }
       ],
       "results": [
-        "The November 24, 2026 server inspection confirmed the API and AI services were running and the external health endpoint returned HTTP 200.",
-        "No verified operational figures are available for external users or traffic."
+        "Implemented company, job, and resume input, stage-by-stage analysis progress, and recovery from failed requests.",
+        "On November 25, 2026, verified the AI Rookie service flow from email authentication through input, analysis, and report viewing, and recorded a demonstration.",
+        "The AI developer handled model and agent pipeline changes. No verified external user counts, traffic figures, or before-and-after improvement metrics are available."
       ],
       "flow": [
         "Requests · Nginx :80",
